@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Algo</title>
+</head>
+<script type="text/javascript">	
+	var duration = [175, 135, 165, 225, 188, 190];
+	var group = [1,1,2,3,3,4];
+	var cities = ["Jaipur", "Jodhpur", "Jaisalmer"];
+	var places = ["Nahargarh Fort", "Jaigarh Fort", "Bapu Bazaar", "Mehrangarh Fort", "Juti Market", "Sadar Bazaar"];
+	var total = 0;
+	for(var x of duration)
+		total += x;
+	total = total*4;
+	total = total/1440;
+
+	document.write("Please enter your duration of stay in days");
+	document.write("The upper limit for duration is %d days");
+	document.write("How many hours in a day do you want to spend in sightseeing");
+	var d = 3;
+	var s = 60*5;
+	var q = 0;
+	var k = 0;
+	var dur2 = new Array();
+	for(var i=0;i<d;i++)
+	{
+		for(var l=0;l<6;l++)
+		{
+			dur2.push(duration[l]);
+		}
+		q = s;
+		console.log();
+		while(k<6)
+		{
+			if(dur2[k]<=q)
+			{
+				console.log();
+				console.log(places[k]);
+				console.log();
+				q = q-dur2[k];
+			}
+			else
+			{
+				break;
+			}
+			if(group[k] != group[k+1])
+			{
+				dur2[k+1] = dur2[k+1] + 30;
+			}
+			k++;
+			
+		}
+
+	}
+</script>
+<body>
+</body>
+</html>
